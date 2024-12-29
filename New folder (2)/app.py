@@ -10,7 +10,7 @@ init_db()
 # Predefined responses for the chatbot
 responses = {
     
-    "hi": "Hello! How can I assist you today?",
+    "hi bejejjee": "Hello! How can I assist you today?",
     "how are you": "I'm good, thank you! How about you?",
         "who is your owner": "an 3rd yr engineering student",
  "Help":"yes ask me",
