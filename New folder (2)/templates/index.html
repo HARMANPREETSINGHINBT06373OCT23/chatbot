@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot with Navigation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            margin-top: 70px; 
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: #1E3D58;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav a {
+            color: white;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #F76C6C;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1E3D58;
+        }
+
+        p, ol {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #F76C6C;
+        }
+
+        .faq-answer {
+            margin-bottom: 20px;
+        }
+
+        #chatbox {
+            width: 100%;
+            height: 150px; 
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            padding: 8px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        input[type="text"] {
+            width: 65%; 
+            padding: 8px;
+            font-size: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-right: 8px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 12px; 
+            background-color: #1E3D58;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #F76C6C;
+        }
+
+        .user-message {
+            color: blue;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .bot-message {
+            color: red;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .message-img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 50%;
+        }
+
+        footer {
+            background-color: #1E3D58;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #F76C6C;
+        }
+
+        @media screen and (max-width: 768px) {
+            header nav {
+                display: block;
+                padding: 10px;
+            }
+
+            header nav a {
+                margin: 10px 0;
+            }
+
+            #chatbox {
+                height: 150px;
+            }
+
+            input[type="text"] {
+                width: 60%;
+            }
+
+            button {
+                width: 30%;
+            }
+
+            .message-img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#chatbot">Chatbot</a>
+    </nav>
+</header>
+
+<section id="home">
+    <h2>Welcome to Our Chatbot</h2>
+    <p>This is the homepage of our chatbot application. You can navigate to different sections to learn more about us, ask questions in our FAQ section, or chat with our bot.</p>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>Our chatbot is built using <strong>Python Flask</strong> along with several useful libraries to manage user interaction efficiently. The application is designed to provide an interactive experience with users by answering their questions or providing relevant responses.</p>
+
+    <p>The chatbot uses a database (stored in <strong>database.py</strong>) which contains a list of frequently asked questions and answers. This ensures that the bot is equipped with relevant information to assist users.</p>
+
+    <p>Flask is a lightweight Python web framework that helps us to handle requests, manage user inputs, and interact with the database seamlessly.</p>
+</section>
+
+<section id="faq">
+    <h2>Frequently Asked Questions (FAQ) & Usage Steps</h2>
+    <h3>FAQ</h3>
+    <p class="faq-question">Q1: How do I use the chatbot?</p>
+    <p class="faq-answer">A1: Simply type your question in the input box and click "Send". The chatbot will respond based on the information available in its database.</p>
+
+    <p class="faq-question">Q2: Can I ask any type of question?</p>
+    <p class="faq-answer">A2: We recommend asking appropriate and respectful questions. Inappropriate content will not be answered.</p>
+
+   <h1> LIST OF SAMPLE QUESTIONS </h1><P>
+    hi<BR>
+
+how are you<BR>
+who is your owner<BR>
+Help<BR>
+bye<BR>
+what devices do you sell<BR>
+can i track my order<BR>
+how long does delivery take<BR>
+do you offer international shipping<BR>
+what payment methods do you accept<BR>
+is there a warranty on products<BR>
+can i return an item<BR>
+how do i return an item<BR>
+do you have a loyalty program<BR>
+can i use multiple discount codes<BR>
+do you offer gift cards<BR>
+how do i cancel my order<BR>
+can i change my shipping address<BR>
+is my information secure<BR>
+how do i contact customer service<BR>
+can i get a discount on bulk orders<BR>
+what is the return policy<BR>
+do you offer student discounts<BR>
+can i pre-order an item<BR>
+are there any hidden fees<BR>
+do you accept returns on electronics<BR>
+do you offer extended warranties<BR>
+are the devices refurbished<BR>
+can i get technical support<BR>
+what brands do you carry<BR>
+how do i know if a product is in stock<BR>
+do you have a physical store<BR>
+can i gift wrap my order<BR>
+is there an option for express shipping<BR>
+can i get a product demo<BR>
+how do i unsubscribe from emails<BR>
+do you offer free shipping<BR>
+are your products certified<BR>
+which laptops do you recommend for gaming<BR>
+what is the best smartphone for photography<BR>
+do you offer budget smartphones<BR>
+what tablets are good for drawing<BR>
+which smartwatch is best for fitness<BR>
+can i upgrade the ram in my laptop<BR>
+ok<BR>
+ji<BR>
+   </P>
+   <H1> CAN USE IN UPPER CAE TO</H1>
+    
+
+    <h3>Usage Steps</h3>
+    <ol>
+        <li>Go to the "Chatbot" section on this page.</li>
+        <li>Type your message or question in the provided input field.</li>
+        <li>Click the "Send" button to submit your message.</li>
+        <li>Wait for the bot's response in the chat window.</li>
+        <li>Feel free to continue asking questions or start a new conversation.</li>
+    </ol>
+</section>
+
+<section id="chatbot">
+    <h2>Chat with Our Bot</h2>
+    <img src="https://st3.depositphotos.com/1008648/16706/i/450/depositphotos_167063128-stock-photo-businessman-chatting-with-chatbot-application.jpg" alt="Chatbot" width="150" height="80">
+    <h1>Chat with our Bot</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Type a message..." style="color: cornflowerblue; background-color: black;">
+    <button onclick="sendMessage()">Send</button>
+</section>
+
+<footer>
+    <p>&copy; 2024 Harman | </p>
+</footer>
+
+<script>
+    function appendMessage(userMessage, botReply) {
+        const chatbox = document.getElementById('chatbox');
+        
+        chatbox.innerHTML += `
+            <div class="user-message" style="display: flex; align-items: center; margin-bottom: 10px;">
+                <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Image" class="message-img" style="width: 30px; height: 30px; margin-right: 10px;">
+                <span style="color: red;"><strong>You:</strong> ${userMessage}</span>
+            </div>
+        `;
+        
+        chatbox.innerHTML += `
+            <div class="bot-message" style="display: flex; align-items: center; margin-bottom: 10px;">
+                <img src="https://png.pngtree.com/png-vector/20220630/ourmid/pngtree-chatbot-logo-vector-template-png-image_5579188.png" alt="Bot Image" class="message-img" style="width: 30px; height: 30px; margin-right: 10px;">
+                <span style="color: blue;"><strong>Bot:</strong> ${botReply}</span>
+            </div>
+        `;
+        
+        chatbox.scrollTop = chatbox.scrollHeight;  
+    }
+
+    function sendMessage() {
+        const userInput = document.getElementById('userInput').value;
+        if (userInput) {
+            fetch('/chat', {
+                method: 'POST',
+                body: new URLSearchParams({ message: userInput }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                appendMessage(data.user_message, data.bot_reply);
+                document.getElementById('userInput').value = '';  
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
