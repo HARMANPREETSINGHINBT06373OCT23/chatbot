@@ -8,9 +8,9 @@ SQLite (comes pre-installed with Python)
 HTML, CSS, JavaScript (for the frontend)
 
 python app.py
-The server will start running on http://127.0.0.1:5000/.
+The server will start running on local server
 
-Access the Chatbot: Open a web browser and navigate to http://127.0.0.1:5000/ to interact with the chatbot. The chatbot will answer predefined questions, and each conversation will be stored in the database.
+Access the Chatbot: Open a web browser and navigate to local server to interact with the chatbot. The chatbot will answer predefined questions, and each conversation will be stored in the database.
 
 Project Structure
 plaintext
